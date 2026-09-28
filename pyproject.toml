@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=78"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tile-accelerator"
+version = "0.1.0"
+description = "A small tiled accelerator compiler, binary simulator, and architecture model"
+requires-python = ">=3.10"
+dependencies = ["numpy>=2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+torch = ["torch>=2.6"]
+iree = ["iree-base-compiler==3.12.0", "iree-base-runtime==3.12.0"]
+
+[project.scripts]
+tile-accelerator = "tile_accelerator.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tile_accelerator*"]
