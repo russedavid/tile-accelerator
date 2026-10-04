@@ -45,6 +45,30 @@ class Architecture:
             raise ValueError("negative cost or invalid capacity")
 
 
+def validate_scratch_timeline(program, trace):
+    """Reject modeled overlap with a scratch RAW/WAR/WAW conflict."""
+    intervals=[]
+    for instruction,item in zip(program.instructions,trace):
+        i=instruction;accesses=[]
+        if i.op==Op.LOAD2D:accesses=[(i.b,i.m*i.n,True)]
+        elif i.op==Op.STORE2D:accesses=[(i.a,i.m*i.n,False)]
+        elif i.op==Op.ZERO:accesses=[(i.a,i.m,True)]
+        elif i.op==Op.MATMUL:accesses=[(i.a,i.m*i.k,False),(i.b,i.k*i.n,False),(i.c,i.m*i.n,True)]
+        elif i.op==Op.EPILOGUE:
+            accesses=[(i.a,i.m*i.n,True),(i.b,i.n,False)]
+            if i.flags&2:accesses.append((i.c,i.m*i.n,False))
+        for address,size,write in accesses:
+            if size:intervals.append((item["start_cycle"],item["end_cycle"],address,address+size,write,item["pc"]))
+    active=[]
+    for current in sorted(intervals,key=lambda item:item[0]):
+        start,end,left,right,write,pc=current
+        active=[item for item in active if item[1]>start]
+        for other in active:
+            if pc!=other[5] and (write or other[4]) and left<other[3] and other[2]<right:
+                raise ValueError(f"scratch hazard between instructions {other[5]} and {pc}")
+        active.append(current)
+
+
 def analyze(program, architecture=Architecture()):
     architecture.validate()
     if program.scratch_elements * 4 > architecture.scratch_bytes:
@@ -118,6 +142,7 @@ def analyze(program, architecture=Architecture()):
                 "macs": ops,
             }
         )
+    validate_scratch_timeline(program, trace)
     cycles = max(finish.values())
     seconds = cycles / architecture.clock_hz
     dynamic_pj = (
