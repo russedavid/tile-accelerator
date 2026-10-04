@@ -1,0 +1,974 @@
+{
+  "kind": "functional checks plus analytical estimates; no physical accelerator measurements",
+  "compiler_scaling": [
+    {
+      "rows": 1,
+      "compile_ms": 0.6892490200698376,
+      "encode_ms": 0.2214849810115993,
+      "instructions": 82,
+      "binary_bytes": 47776,
+      "process_peak_rss_kib": 36084
+    },
+    {
+      "rows": 17,
+      "compile_ms": 1.1053589987568557,
+      "encode_ms": 0.4467919934540987,
+      "instructions": 163,
+      "binary_bytes": 66336,
+      "process_peak_rss_kib": 36340
+    },
+    {
+      "rows": 65,
+      "compile_ms": 2.4726459523662925,
+      "encode_ms": 1.0650979820638895,
+      "instructions": 406,
+      "binary_bytes": 122016,
+      "process_peak_rss_kib": 36596
+    },
+    {
+      "rows": 257,
+      "compile_ms": 9.111663035582751,
+      "encode_ms": 3.7945910007692873,
+      "instructions": 1378,
+      "binary_bytes": 344736,
+      "process_peak_rss_kib": 38132
+    },
+    {
+      "rows": 1024,
+      "compile_ms": 24.011898960452527,
+      "encode_ms": 8.88034701347351,
+      "instructions": 5185,
+      "binary_bytes": 1229596,
+      "process_peak_rss_kib": 43632
+    }
+  ],
+  "double_buffering": [
+    {
+      "target": {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 32,
+        "tile_k": 32,
+        "double_buffer": false,
+        "native_depthwise": true,
+        "operand_dtype": "f32"
+      },
+      "correctness": true,
+      "execution_counters": {
+        "instructions": 163,
+        "multiply_adds": 174590,
+        "dma_bytes": 126900
+      },
+      "estimated_cycles": 20384,
+      "estimated_latency_us": 101.92,
+      "dma_bytes": 126900,
+      "energy_uj": 3.670416
+    },
+    {
+      "target": {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 32,
+        "tile_k": 32,
+        "double_buffer": true,
+        "native_depthwise": true,
+        "operand_dtype": "f32"
+      },
+      "correctness": true,
+      "execution_counters": {
+        "instructions": 163,
+        "multiply_adds": 174590,
+        "dma_bytes": 126900
+      },
+      "estimated_cycles": 17237,
+      "estimated_latency_us": 86.185,
+      "dma_bytes": 126900,
+      "energy_uj": 3.654681
+    }
+  ],
+  "architecture_sweep": {
+    "kind": "architecture/tile sensitivity study; illustrative area proxy, not ASIC area",
+    "shape": [
+      17,
+      65,
+      79
+    ],
+    "points": [
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 144.165,
+        "energy_uj": 6.058045,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 130.52499999999998,
+        "energy_uj": 6.044404999999999,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 123.795,
+        "energy_uj": 6.037675,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 110.245,
+        "energy_uj": 5.065189,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 96.605,
+        "energy_uj": 5.0515490000000005,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 89.785,
+        "energy_uj": 5.044729,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 95.095,
+        "energy_uj": 4.619191,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 81.46499999999999,
+        "energy_uj": 4.605561,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 74.645,
+        "energy_uj": 4.598741,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 116.89999999999999,
+        "energy_uj": 5.114348000000001,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 103.25999999999999,
+        "energy_uj": 5.100708,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 96.44000000000001,
+        "energy_uj": 5.093888000000001,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 89.7,
+        "energy_uj": 4.1282119999999995,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 76.06,
+        "energy_uj": 4.114572,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 69.24,
+        "energy_uj": 4.107752,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 77.55,
+        "energy_uj": 3.685214,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 63.919999999999995,
+        "energy_uj": 3.671584,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 57.1,
+        "energy_uj": 3.6647640000000004,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 89.645,
+        "energy_uj": 4.170661,
+        "area_proxy": 2.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 76.005,
+        "energy_uj": 4.157021,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 69.185,
+        "energy_uj": 4.150201,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 69.165,
+        "energy_uj": 3.191245,
+        "area_proxy": 2.0,
+        "pareto": true
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 55.525,
+        "energy_uj": 3.177605,
+        "area_proxy": 3.0,
+        "pareto": true
+      },
+      {
+        "scratch_bytes": 8192,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 48.705000000000005,
+        "energy_uj": 3.170785,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 144.165,
+        "energy_uj": 6.058045,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 130.52499999999998,
+        "energy_uj": 6.044404999999999,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 123.795,
+        "energy_uj": 6.037675,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 110.245,
+        "energy_uj": 5.065189,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 96.605,
+        "energy_uj": 5.0515490000000005,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 89.785,
+        "energy_uj": 5.044729,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 95.095,
+        "energy_uj": 4.619191,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 81.46499999999999,
+        "energy_uj": 4.605561,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 74.645,
+        "energy_uj": 4.598741,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 116.89999999999999,
+        "energy_uj": 5.114348000000001,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 103.25999999999999,
+        "energy_uj": 5.100708,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 96.44000000000001,
+        "energy_uj": 5.093888000000001,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 89.7,
+        "energy_uj": 4.1282119999999995,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 76.06,
+        "energy_uj": 4.114572,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 69.24,
+        "energy_uj": 4.107752,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 77.55,
+        "energy_uj": 3.685214,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 63.919999999999995,
+        "energy_uj": 3.671584,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 57.1,
+        "energy_uj": 3.6647640000000004,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 89.645,
+        "energy_uj": 4.170661,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 76.005,
+        "energy_uj": 4.157021,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 69.185,
+        "energy_uj": 4.150201,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 69.165,
+        "energy_uj": 3.191245,
+        "area_proxy": 3.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 55.525,
+        "energy_uj": 3.177605,
+        "area_proxy": 4.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 48.705000000000005,
+        "energy_uj": 3.170785,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 60.015,
+        "energy_uj": 2.7512469999999998,
+        "area_proxy": 3.0,
+        "pareto": true
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 46.385,
+        "energy_uj": 2.7376169999999997,
+        "area_proxy": 4.0,
+        "pareto": true
+      },
+      {
+        "scratch_bytes": 16384,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 39.565,
+        "energy_uj": 2.730797,
+        "area_proxy": 6.0,
+        "pareto": true
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 144.165,
+        "energy_uj": 6.058045,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 130.52499999999998,
+        "energy_uj": 6.044404999999999,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 123.795,
+        "energy_uj": 6.037675,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 110.245,
+        "energy_uj": 5.065189,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 96.605,
+        "energy_uj": 5.0515490000000005,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 89.785,
+        "energy_uj": 5.044729,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 95.095,
+        "energy_uj": 4.619191,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 81.46499999999999,
+        "energy_uj": 4.605561,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 8,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 74.645,
+        "energy_uj": 4.598741,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 116.89999999999999,
+        "energy_uj": 5.114348000000001,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 103.25999999999999,
+        "energy_uj": 5.100708,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 96.44000000000001,
+        "energy_uj": 5.093888000000001,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 89.7,
+        "energy_uj": 4.1282119999999995,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 76.06,
+        "energy_uj": 4.114572,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 69.24,
+        "energy_uj": 4.107752,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 77.55,
+        "energy_uj": 3.685214,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 63.919999999999995,
+        "energy_uj": 3.671584,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 16,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 57.1,
+        "energy_uj": 3.6647640000000004,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 32,
+        "latency_us": 89.645,
+        "energy_uj": 4.170661,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 64,
+        "latency_us": 76.005,
+        "energy_uj": 4.157021,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 8,
+        "macs_per_cycle": 128,
+        "latency_us": 69.185,
+        "energy_uj": 4.150201,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 32,
+        "latency_us": 69.165,
+        "energy_uj": 3.191245,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 64,
+        "latency_us": 55.525,
+        "energy_uj": 3.177605,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 16,
+        "macs_per_cycle": 128,
+        "latency_us": 48.705000000000005,
+        "energy_uj": 3.170785,
+        "area_proxy": 8.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 32,
+        "latency_us": 60.015,
+        "energy_uj": 2.7512469999999998,
+        "area_proxy": 5.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 64,
+        "latency_us": 46.385,
+        "energy_uj": 2.7376169999999997,
+        "area_proxy": 6.0,
+        "pareto": false
+      },
+      {
+        "scratch_bytes": 32768,
+        "tile_m": 32,
+        "tile_n": 32,
+        "macs_per_cycle": 128,
+        "latency_us": 39.565,
+        "energy_uj": 2.730797,
+        "area_proxy": 8.0,
+        "pareto": false
+      }
+    ]
+  },
+  "sensitivity": [
+    {
+      "dma_bytes_per_cycle": 8,
+      "dram_pj_per_byte": 10,
+      "latency_us": 115.08,
+      "energy_uj": 2.414576
+    },
+    {
+      "dma_bytes_per_cycle": 8,
+      "dram_pj_per_byte": 20,
+      "latency_us": 115.08,
+      "energy_uj": 3.683576
+    },
+    {
+      "dma_bytes_per_cycle": 8,
+      "dram_pj_per_byte": 40,
+      "latency_us": 115.08,
+      "energy_uj": 6.221576
+    },
+    {
+      "dma_bytes_per_cycle": 16,
+      "dram_pj_per_byte": 10,
+      "latency_us": 86.185,
+      "energy_uj": 2.385681
+    },
+    {
+      "dma_bytes_per_cycle": 16,
+      "dram_pj_per_byte": 20,
+      "latency_us": 86.185,
+      "energy_uj": 3.654681
+    },
+    {
+      "dma_bytes_per_cycle": 16,
+      "dram_pj_per_byte": 40,
+      "latency_us": 86.185,
+      "energy_uj": 6.192681
+    },
+    {
+      "dma_bytes_per_cycle": 32,
+      "dram_pj_per_byte": 10,
+      "latency_us": 71.845,
+      "energy_uj": 2.371341
+    },
+    {
+      "dma_bytes_per_cycle": 32,
+      "dram_pj_per_byte": 20,
+      "latency_us": 71.845,
+      "energy_uj": 3.6403410000000003
+    },
+    {
+      "dma_bytes_per_cycle": 32,
+      "dram_pj_per_byte": 40,
+      "latency_us": 71.845,
+      "energy_uj": 6.178341
+    }
+  ],
+  "native_feature_comparison": [
+    {
+      "native_depthwise": true,
+      "correctness": true,
+      "instructions": 26,
+      "multiply_adds": 3920,
+      "estimated_latency_us": 5.6899999999999995,
+      "dma_bytes": 13692,
+      "limits": "Native feature area/energy cost not calibrated; not a free silicon improvement."
+    },
+    {
+      "native_depthwise": false,
+      "correctness": true,
+      "instructions": 399,
+      "multiply_adds": 17150,
+      "estimated_latency_us": 26.2,
+      "dma_bytes": 16884,
+      "limits": "Native feature area/energy cost not calibrated; not a free silicon improvement."
+    }
+  ],
+  "source_sha256": {
+    "isa.py": "3fa276b425950a18c26fd9d1005200e4d0d5fe7c62fedd19d7ebc7447b34d02b",
+    "analysis.py": "59be4585f5a292e90b7771d38d459d3f440366d568c37b8f72f9f3fb3952fd72",
+    "cli.py": "74f2f5bdffebf4950541feee1c680a1bd6207d5b63ae4f3d0478c28e88208c04",
+    "studies.py": "75272f5207da859c5b0f56f38951e95d50fc89bf9d1c56c532e10ba2a753308b",
+    "runtime.py": "404e6e3a38d7ca40326cafe2de2400e7ce2dc41c39680b2cc4f91b15acf65197",
+    "torch_frontend.py": "ba2fdaa5dea7e235c31399cc76f37d02d91e242e1ddefe59723a7d06c317d15d",
+    "compiler.py": "0efc4fedc7f318256c351463d2710e028797346cdd841f0bc7ed7d38a4304bee",
+    "__init__.py": "be9064238c3a2d21379e1b5dfeddb735a845832c6d920af31117aeb9eefab12d",
+    "iree_bridge.py": "4152f5d9aae68961eac249cfae35dc30873200506a92eac601e0158cbe60db0a"
+  },
+  "limits": [
+    "peak RSS is cumulative within one process",
+    "one compiler timing per size; illustrative scaling",
+    "area proxy is not calibrated ASIC area",
+    "architecture component costs are user-supplied assumptions"
+  ],
+  "source_commit": "b9dc07a7ee2b235bb3aa8a9c260ac7f0b4cb153f",
+  "simulator_source_sha256": "4d5522c840791446dc4e8014656ef0dc552f17f34140b0e4de5ed5a86bf1aabf"
+}
